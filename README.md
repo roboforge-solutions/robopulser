@@ -64,7 +64,7 @@ columns:
 Now save this configuration as `example.yml` and (in the same directory) write a simple script:
 
 ```python
-from robopulser import pulser
+import robopulser.robopulser as pulser
 
 pulser.yaml_pulse("example.yml")
 ```
@@ -78,13 +78,18 @@ You will not see any logs, but you can add a logger (from Python's logging libra
 If you want to use robopulse inside your code using your own SQLAlchemy model class, you can do it as well. Let's reproduce the previous example in this way:
 
 ```python
-from sqlalchemy import Column, String, Integer, DateTime
-from sqlalchemy.orm import declarative_base
-from robopulser import pulser
-
+# roboforge-solutions's suite:
+import robopulser.robopulser as pulser
 from robolog import robolog
 
+# sqlalchemy imports:
+from sqlalchemy import Column, String, DateTime
+from sqlalchemy.orm import declarative_base
+
+
+# Creating robolog instance:
 log = robolog.get_logger()
+
 # Your own model class:
 Base = declarative_base()
 class MyPulseModel(Base):
@@ -94,6 +99,7 @@ class MyPulseModel(Base):
     last_pulse = Column("last_pulse", DateTime, info="pulse")
     contact_info = Column("contact_info", String(1000), default="emergency.contact@mail.com")
 
+# Single pulse using model approach:
 pulser.model_pulse(Model=MyPulseModel, logger=log)
 ```
 
