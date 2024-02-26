@@ -1,0 +1,17 @@
+table_name: "PULSE_TABLE"
+
+columns: 
+
+  - name: pid
+    column_type: String(1000)
+    default: "UNIQUEPID-123"
+    unique: True
+    primary_key: True 
+
+  - name: last_pulse
+    column_type: DateTime
+    info: 'pulse'
+
+  - name: contact_info
+    column_type: String(1000)
+    default: "emergency.contact@mail.com"

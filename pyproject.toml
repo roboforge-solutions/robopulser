@@ -20,3 +20,6 @@ mssql = ["pymssql"]
 mysql = ["mysql-connector-python"]
 psycopg2 = ["psycopg2"]
 pg8000 = ["pg8000"]
+
+[tool.poetry.scripts]
+pulser-template = "robopulser.scripts.shell:copy_templates"

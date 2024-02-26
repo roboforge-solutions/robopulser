@@ -41,7 +41,7 @@ class Pulser:
         db_host: str = None,
         db_port: str = None,
         db_name: str = None,
-        log: logging.Logger = None
+        log: logging.Logger = None,
     ):
 
         self.db_driver = db_driver
@@ -54,8 +54,6 @@ class Pulser:
 
         self.yaml_model_path = yaml_model_path
         self.conn_str = self._set_conn_str(conn_str)
-
-        print(self.conn_str)
 
         self.Model = self._set_model(Model, yaml_model_path)
 
@@ -133,7 +131,6 @@ class Pulser:
                     print(f"Pulser error: {e}")
 
 
-
 if __name__ == "__main__":
 
     from sqlalchemy import Column, String, Integer, DateTime
@@ -147,8 +144,6 @@ if __name__ == "__main__":
         id = Column("id", Integer, primary_key=True, autoincrement=True)
         last_pulse = Column("last_pulse", DateTime)
         alert_contact = Column("alert_contact", String(1000))
-
-
 
     pulser = Pulser(yaml_model_path="pulse_table.yml")
     row = pulser.pulse()

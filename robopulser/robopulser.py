@@ -96,7 +96,6 @@ def model_pulse(
 
 if __name__ == "__main__":
 
-
     from sqlalchemy import Column, String, Integer, DateTime
     from sqlalchemy.orm import declarative_base
     import time
@@ -118,7 +117,6 @@ if __name__ == "__main__":
     #     contact_info = Column("contact_info", String, default="my@mail.com")
 
     # model_pulse(Model=PulseTable)
-
 
     # ---------------------------------------------------------------------------------------------------------------------
     # DOCKER DB TESTING SETUP:
@@ -149,8 +147,8 @@ if __name__ == "__main__":
         "postgress": {
             "url": "https://hub.docker.com/_/postgres/",
             "pull": "docker pull postgres",
-            "run": 'docker run -e POSTGRES_PASSWORD=yourStrongPassword -p 5432:5432 --name postgres_container -d postgres'
-        }
+            "run": "docker run -e POSTGRES_PASSWORD=yourStrongPassword -p 5432:5432 --name postgres_container -d postgres",
+        },
     }
 
     # Data used for testing. This data is provided manually based on the settings of docker images above.
@@ -186,23 +184,15 @@ if __name__ == "__main__":
             "port": "5432",
             "db_name": "postgres",
             "driver": "postgresql+pg8000",
-        }
+        },
     }
 
     for driver, params in test_setup.items():
-        user = params['user']
-        passwd = params['password']
-        host = params['host']
-        port = params['port']
-        name = params['db_name']
-        driver = params['driver']
+        user = params["user"]
+        passwd = params["password"]
+        host = params["host"]
+        port = params["port"]
+        name = params["db_name"]
+        driver = params["driver"]
 
-        yaml_pulse(
-            "pulse_table.yml", 
-            None, 
-            driver,
-            user,
-            passwd,
-            host,
-            port
-        )
+        yaml_pulse("pulse_table.yml", None, driver, user, passwd, host, port)
