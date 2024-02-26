@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "robopulser"
+version = "0.1.0"
+description = "Simple package imitating heartbeat (using database timestamp updates)"
+authors = ["Wojciech Jankiewicz <jankiwojciech@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+sqlalchemy = "*"
+pyyaml = "*"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.extras]
+mssql = ["pymssql"]     
+mysql = ["mysql-connector-python"]
+psycopg2 = ["psycopg2"]
+pg8000 = ["pg8000"]
