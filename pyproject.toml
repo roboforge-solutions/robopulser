@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "robopulser"
-version = "0.1.0"
+version = "0.2.0"
 description = "Simple package imitating heartbeat (using database timestamp updates)"
 authors = ["Wojciech Jankiewicz <jankiwojciech@outlook.com>"]
 license = "MIT"
