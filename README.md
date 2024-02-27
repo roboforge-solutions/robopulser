@@ -19,10 +19,10 @@ pip install robopulser
 If you want to use robopulse with a real database (not SQLite), you can download it with one of the optional dependencies. The following databases have been tested and proven working:
 
 ```powershell
-pip install robopulser[mssql]     # pip install pymssql
-pip install robopulser[mysql]     # pip install mysql-connector-python
-pip install robopulser[psycopg2]  # pip install psycopg2
-pip install robopulser[pg8000]    # pip install pg8000
+pip install robopulser[mssql]         # pip install pymssql
+pip install robopulser[mysql]         # pip install mysql-connector-python
+pip install robopulser[postgress]     # pip install psycopg2
+pip install robopulser[postgress1]    # pip install pg8000
 ```
 
 ## Using in Python script
